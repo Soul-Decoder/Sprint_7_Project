@@ -15,8 +15,10 @@ if build_histogram:
     #Título del histograma
     st.write('Distribución de la distancia total (Millas)')     
     #Se genera un histograma con 'plotly'
-    fig = px.histogram(car_data, x="odometer", labels={"odometer": "Distancia recorrida (Millas)", "count": "Frecuencia"},
+    fig = px.histogram(car_data, x="odometer", labels={"odometer": "Distancia recorrida (Millas)"},
                        title="La distribución se concentra entre las 0 y 0.3 Millas")
+    #Se define la etiqueta del eje 'y' del histograma
+    fig.update_layout(yaxis_title="Frecuencia")
     #Se muestra el gráfico interactivo
     st.plotly_chart(fig, use_container_width=True)
 
