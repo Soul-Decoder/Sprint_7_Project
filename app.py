@@ -18,8 +18,9 @@ if build_histogram:
     fig = px.histogram(car_data, x="odometer", labels={"odometer": "Distancia recorrida (Millas)"})
     #Se definen los títulos del histograma
     #Se define la etiqueta del eje 'y' del histograma
-    fig.update_layout(title_text="Distribución de la distancia total (Millas),",
+    fig.update_layout(title_text="Distribución de la distancia total (Millas)",
     title_subtitle_text="La distribución se concentra entre las 0 y 0.3 Millas",
+    title_subtitle_font_size=12,
     yaxis_title="Frecuencia"
     )
     #Se muestra el gráfico interactivo
@@ -38,7 +39,8 @@ if build_scatter:
     #Se definen los títulos del gráfico de dispersión
     fig.update_layout(
         title_text="Relación entre la distancia total del vehículo y su precio",
-        title_subtitle_text="Correlación negativa: {:.2f}".format(coe_cor)
+        title_subtitle_text="Correlación negativa: {:.2f}".format(coe_cor),
+        title_subtitle_font_size=12
         )
     #Se muestra el gráfico interactivo
     st.plotly_chart(fig, use_container_width=True)
