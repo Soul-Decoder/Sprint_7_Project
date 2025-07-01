@@ -15,7 +15,7 @@ if build_histogram:
     #Título del histograma
     st.write('Distribución de la distancia total (Millas)')     
     #Se genera un histograma con 'plotly'
-    fig = px.histogram(car_data, x="odometer")
+    fig = px.histogram(car_data, x="odometer", labels={"odometer": "Distancia recorrida (Millas)"})
     #Se muestra el gráfico interactivo
     st.plotly_chart(fig, use_container_width=True)
 
@@ -26,6 +26,6 @@ if build_scatter:
     #Título del gráfico de dispersión
     st.write('Relación entre la distancia total del vehículo y su precio')     
     #Se genera un gráfico de dispersión con 'plotly'
-    fig = px.scatter(car_data, x="odometer", y="price")
+    fig = px.scatter(car_data, x="odometer", y="price", labels={"odometer": "Distancia recorrida (Millas)", "price": "Precio ($)"})
     #Se muestra el gráfico interactivo
     st.plotly_chart(fig, use_container_width=True)
