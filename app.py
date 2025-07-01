@@ -15,10 +15,13 @@ if build_histogram:
     #Información de la elección
     st.write('La opción Histograma fue seleccionada.\nA continuación, se presenta el gráfico...')     
     #Se genera un histograma con 'plotly'
-    fig = px.histogram(car_data, x="odometer", labels={"odometer": "Distancia recorrida (Millas)"},
-                       title="Distribución de la distancia total (Millas)\nLa distribución se concentra entre las 0 y 0.3 Millas")
+    fig = px.histogram(car_data, x="odometer", labels={"odometer": "Distancia recorrida (Millas)"})
+    #Se definen los títulos del histograma
     #Se define la etiqueta del eje 'y' del histograma
-    fig.update_layout(yaxis_title="Frecuencia")
+    fig.update_layout(title_text="Distribución de la distancia total (Millas),",
+    title_subtitle_text="La distribución se concentra entre las 0 y 0.3 Millas",
+    yaxis_title="Frecuencia"
+    )
     #Se muestra el gráfico interactivo
     st.plotly_chart(fig, use_container_width=True)
 
@@ -27,11 +30,15 @@ build_scatter = st.checkbox('Gráfico de dispersión: Distancia total y precio')
 #Condicional de la casilla de verificación
 if build_scatter:
     #Título del gráfico de dispersión
-    st.write('El gráfico de dispersión fue seleccionado.\nA continuación, se presenta el gráfico')
+    st.write('El gráfico de dispersión fue seleccionado.\nA continuación, se presenta el gráfico...')
     #Se calcula el coeficiente de correlación
     coe_cor=car_data["odometer"].corr(car_data["price"])    
     #Se genera un gráfico de dispersión con 'plotly'
-    fig = px.scatter(car_data, x="odometer", y="price", labels={"odometer": "Distancia recorrida (Millas)", "price": "Precio ($)"},
-                     title="Relación entre la distancia total del vehículo y su precio\nCorrelación negativa: {:.2f}".format(coe_cor))
+    fig = px.scatter(car_data, x="odometer", y="price", labels={"odometer": "Distancia recorrida (Millas)", "price": "Precio ($)"})
+    #Se definen los títulos del gráfico de dispersión
+    fig.update_layout(
+        title_text="Relación entre la distancia total del vehículo y su precio",
+        title_subtitle_text="Correlación negativa: {:.2f}".format(coe_cor)
+        )
     #Se muestra el gráfico interactivo
     st.plotly_chart(fig, use_container_width=True)
