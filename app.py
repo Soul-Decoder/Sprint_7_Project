@@ -34,7 +34,7 @@ build_scatter = st.checkbox('Gráfico de dispersión: Distancia total y precio')
 #Condicional de la casilla de verificación
 if build_scatter:
     #Título del gráfico de dispersión
-    st.write('La opción "Gráfico de dispersión" fue seleccionado.\nA continuación, se presenta el gráfico...')
+    st.write('La opción "Gráfico de dispersión" fue seleccionada.\nA continuación, se presenta el gráfico...')
     #Se calcula el coeficiente de correlación
     coe_cor=car_data["odometer"].corr(car_data["price"])    
     #Se genera un gráfico de dispersión con 'plotly'
