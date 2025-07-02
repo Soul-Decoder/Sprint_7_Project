@@ -6,3 +6,6 @@
 # La segunda opción corresponde a un gráfico de dispersión de las columnas
 # precio y distancia recorrida de los vehículos
 # La opciones se pueden habilitar mediante una casilla verificación
+
+# Enlace applicación web:
+https://sprint-7-project-p164.onrender.com/
